@@ -56,9 +56,9 @@ fun ApiUser.toDomain(): DomainUser {
             bio = bio,
             flags = privateFlags ?: 0,
             mfaEnabled = mfaEnabled!!,
-            verified = verified!!,
+            verified = verified ?: false,
             premium = premium,
-            purchasedFlags = purchasedFlags!!,
+            purchasedFlags = purchasedFlags ?: 0,
         )
         else -> DomainUserPublic(
             id = id.value,

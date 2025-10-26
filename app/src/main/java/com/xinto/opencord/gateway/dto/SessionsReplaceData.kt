@@ -23,6 +23,7 @@ data class SessionData(
 
 @Serializable
 data class ClientInfo(
-    val client: String,
-    val os: String,
+    val client: String? = null,
+    val os: String? = null,
+    var version: Int? = 0
 )
