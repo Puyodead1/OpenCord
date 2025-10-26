@@ -88,6 +88,7 @@ class AccountCookieManagerImpl(
     private suspend fun loadCookies() {
         val stringCookies = accountDatabase.accounts().getCookies(accountManager.currentAccountToken!!)
             ?: return
+        if (stringCookies.isEmpty()) return
 
         val cookies = stringCookies.split(",")
             .map { parseServerSetCookieHeader(it.decodeBase64String()) }

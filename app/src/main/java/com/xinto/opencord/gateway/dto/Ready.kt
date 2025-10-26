@@ -44,10 +44,10 @@ data class ReadStateEntry(
     val channelId: Long,
 
     @SerialName("mention_count")
-    val mentionCount: Int,
+    val mentionCount: Int? = null,
 
     @SerialName("last_pin_timestamp")
-    val lastPinTimestamp: Instant,
+    val lastPinTimestamp: Instant? = null,
 
     @SerialName("last_message_id")
     val lastMessageId: Long,

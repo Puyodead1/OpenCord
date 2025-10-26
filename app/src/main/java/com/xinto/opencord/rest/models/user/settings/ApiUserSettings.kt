@@ -97,8 +97,8 @@ data class ApiUserSettings(
     @SerialName("view_nsfw_guilds")
     val viewNsfwGuilds: Boolean,
 
-    @SerialName("passwordless")
-    val passwordless: Boolean,
+//    @SerialName("passwordless")
+//    val passwordless: Boolean,
 
     @SerialName("friend_source_flags")
     val friendSourceFlags: ApiFriendSources,
@@ -137,7 +137,7 @@ fun DomainUserSettingsPartial.toApi(): ApiUserSettingsPartial {
         animateStickers = animateStickers,
         friendDiscoveryFlags = friendDiscoveryFlags,
         viewNsfwGuilds = viewNsfwGuilds,
-        passwordless = passwordless,
+//        passwordless = passwordless,
         friendSourceFlags = friendSourceFlags.map { it.toApi() },
         guildFolders = guildFolders.map { guildFolders ->
             guildFolders.map { it.toApi() }

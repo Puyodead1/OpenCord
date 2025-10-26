@@ -19,16 +19,16 @@ android {
         versionCode = 1
         versionName = "0.0.1"
 
-        buildConfigField("int", "DISCORD_VERSION_CODE", "126021")
-        buildConfigField("String", "DISCORD_VERSION_NAME", "\"126.21 - Stable\"")
-        buildConfigField("String", "URL_BASE", "\"https://discord.com\"")
-        buildConfigField("String", "URL_API", "\"https://discord.com/api/v9\"")
-        buildConfigField("String", "URL_CDN", "\"https://cdn.discordapp.com\"")
+        buildConfigField("int", "OPENCORD_VERSION_CODE", "000000")
+        buildConfigField("String", "OPENCORD_VERSION_NAME", "\"000.00 - Dev\"")
+        buildConfigField("String", "URL_BASE", "\"https://spacebar.chat\"")
+        buildConfigField("String", "URL_API", "\"https://api.old.server.spacebar.chat/api/v9\"")
+        buildConfigField("String", "URL_CDN", "\"https://cdn.old.server.spacebar.chat\"")
         buildConfigField("String", "CAPTCHA_KEY", "\"f5561ba9-8f1e-40ca-9b5b-a0b3f719ef34\"")
         buildConfigField(
             "String",
             "URL_GATEWAY",
-            "\"wss://gateway.discord.gg/?encoding=json&v=9&compress=zlib-stream\"",
+            "\"wss://gateway.old.server.spacebar.chat/?encoding=json&v=9\"",
         )
 
         val languages = project.projectDir.resolve("src/main/res")

@@ -28,11 +28,11 @@ interface TelemetryProvider {
 class AnonymousTelemetryProvider : TelemetryProvider {
     private val device = AnonymousDevice.devices.random()
 
-    override val browser = "Discord Android"
-    override val userAgent = "Discord-Android/${BuildConfig.DISCORD_VERSION_CODE}"
+    override val browser = "OpenCord"
+    override val userAgent = "OpenCord-Android/${BuildConfig.OPENCORD_VERSION_CODE}"
 
-    override val clientBuildVersion = BuildConfig.DISCORD_VERSION_NAME
-    override val clientBuildCode = BuildConfig.DISCORD_VERSION_CODE
+    override val clientBuildVersion = BuildConfig.OPENCORD_VERSION_NAME
+    override val clientBuildCode = BuildConfig.OPENCORD_VERSION_CODE
 
     override val deviceName = device.name
     override val os = device.os

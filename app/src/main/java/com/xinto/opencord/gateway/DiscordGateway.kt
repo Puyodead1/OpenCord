@@ -17,6 +17,7 @@ import com.xinto.opencord.rest.models.ApiSnowflake
 import com.xinto.opencord.util.Logger
 import io.ktor.client.*
 import io.ktor.client.plugins.websocket.*
+import io.ktor.client.request.headers
 import io.ktor.websocket.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
@@ -104,7 +105,12 @@ class DiscordGatewayImpl(
         zlibInflater = Inflater()
 
         try {
-            webSocketSession = client.webSocketSession(BuildConfig.URL_GATEWAY)
+            webSocketSession = client.webSocketSession(BuildConfig.URL_GATEWAY, {
+                headers {
+                    append("User-Agent", "OpenCord/${BuildConfig.VERSION_NAME}")
+                }
+            })
+
 
             sendIdentification()
             _state.emit(DiscordGateway.State.Connected)
@@ -223,24 +229,24 @@ class DiscordGatewayImpl(
             opCode = OpCode.Identify,
             data = Identification(
                 token = accountManager.currentAccountToken!!,
-                capabilities = arrayOf(
-                    Capabilities.LAZY_USER_NOTES,
-                    Capabilities.NO_AFFINE_USER_IDS,
-                    Capabilities.VERSIONED_READ_STATES,
-                    Capabilities.VERSIONED_USER_GUILD_SETTINGS,
-                    Capabilities.DEDUPLICATE_USER_OBJECTS,
-                    Capabilities.MULTIPLE_GUILD_EXPERIMENT_POPULATIONS,
-                    Capabilities.AUTH_TOKEN_REFRESH,
-                ).fold(0) { a, b -> a or b.value },
-                largeThreshold = 100,
-                compress = true,
-                properties = propertyProvider.identificationProperties,
-                clientState = IdentificationClientState(
-                    guildHashes = emptyMap(),
-                    highestLastMessageId = 0,
-                    readStateVersion = -1,
-                    userGuildSettingsVersion = -1,
-                ),
+//                capabilities = arrayOf(
+//                    Capabilities.LAZY_USER_NOTES,
+//                    Capabilities.NO_AFFINE_USER_IDS,
+//                    Capabilities.VERSIONED_READ_STATES,
+//                    Capabilities.VERSIONED_USER_GUILD_SETTINGS,
+//                    Capabilities.DEDUPLICATE_USER_OBJECTS,
+//                    Capabilities.MULTIPLE_GUILD_EXPERIMENT_POPULATIONS,
+//                    Capabilities.AUTH_TOKEN_REFRESH,
+//                ).fold(0) { a, b -> a or b.value },
+//                largeThreshold = 100,
+//                compress = true,
+                properties = propertyProvider.identificationProperties
+//                clientState = IdentificationClientState(
+//                    guildHashes = emptyMap(),
+//                    highestLastMessageId = 0,
+//                    readStateVersion = -1,
+//                    userGuildSettingsVersion = -1,
+//                ),
             ),
         )
     }

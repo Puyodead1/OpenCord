@@ -8,14 +8,14 @@ data class Identification(
     @SerialName("token")
     val token: String,
 
-    @SerialName("capabilities")
-    val capabilities: Int,
-
-    @SerialName("largeThreshold")
-    val largeThreshold: Int,
-
-    @SerialName("compress")
-    val compress: Boolean,
+//    @SerialName("capabilities")
+//    val capabilities: Int,
+//
+//    @SerialName("largeThreshold")
+//    val largeThreshold: Int,
+//
+//    @SerialName("compress")
+//    val compress: Boolean,
 
     @SerialName("properties")
     val properties: IdentificationProperties,
@@ -23,8 +23,8 @@ data class Identification(
 //    @SerialName("presence")
 //    val presence: IdentificationPresence,
 
-    @SerialName("clientState")
-    val clientState: IdentificationClientState,
+//    @SerialName("clientState")
+//    val clientState: IdentificationClientState,
 )
 
 @Serializable

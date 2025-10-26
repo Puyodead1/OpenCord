@@ -78,7 +78,7 @@ class UnreadStoreImpl(
             val states = event.data.readState.entries.map {
                 EntityUnreadState(
                     channelId = it.channelId,
-                    mentionCount = it.mentionCount,
+                    mentionCount = it.mentionCount ?: 0,
                     lastMessageId = it.lastMessageId,
                 )
             }

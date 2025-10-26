@@ -13,10 +13,10 @@ data class IncomingPayload(
     val data: JsonElement?,
 
     @SerialName("s")
-    val sequenceNumber: Int?,
+    val sequenceNumber: Int? = null,
 
     @SerialName("t")
-    val eventName: EventName?,
+    val eventName: EventName? = null,
 )
 
 @Serializable
